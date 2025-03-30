@@ -1,27 +1,33 @@
 ---
-
-import Header from "../components/Header.tsx";
-import Footer from "../components/Footer.tsx";
+import Header from "../components/Header";
+import Head from "../components/Head";
+import Footer from "../components/Footer";
 import "../styles/global.css";
+
 const { title, frontmatter } = Astro.props;
-const pageTitle = title ?? frontmatter?.title
+const pageTitle = title ?? frontmatter?.title;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" >
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/logoJB.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{ pageTitle }</title>
+		<Head 
+			title={pageTitle}
+			description="Tu descripción personalizada aquí"
+		/>
+		<script is:inline>
+		if (!localStorage.getItem('token')) {
+			window.location.href = '/login';
+		  }
+		</script>
 	</head>
 
 	<body class="flex flex-col min-h-screen" title="">
-		<Header title="" />
+		<Header client:load title="" />
 		<main class="flex-grow conteiner mx-auto p-8">
 			<slot />
 		</main>
 		<Footer title="" />
 	</body>
+	
 </html>

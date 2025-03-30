@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<head>
+    <meta charset="UTF-8">
+    <script src="/edit-member.js" defer></script>
+
+</head>
+<Layout title="Miembros">
+
+<section class="container px-4 mx-auto">
+    <div class="flex items-center gap-x-3">
+        <h2 class="text-lg font-medium text-gray-800 dark:text-white">Miembros</h2>
+    </div>
+
+    <div class="flex flex-col mt-6">
+        <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                    <table id="membersTable" class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                        <thead class="bg-gray-50 dark:bg-gray-800">
+                            <tr>
+                                <th class="py-3.5 px-4 text-sm text-left text-gray-500 dark:text-gray-400">Nombre</th>
+                                <th class="py-3.5 px-4 text-sm text-left text-gray-500 dark:text-gray-400">Apellido</th>
+                                <th class="px-4 py-3.5 text-sm text-left text-gray-500 dark:text-gray-400">Documento</th>
+                                <th class="px-4 py-3.5 text-sm text-left text-gray-500 dark:text-gray-400">Fecha de nacimiento</th>
+                                <th class="px-4 py-3.5 text-sm text-left text-gray-500 dark:text-gray-400">Rol</th>
+                                <th class="px-4 py-3.5 text-sm text-left text-gray-500 dark:text-gray-400">Correo Electrónico</th>
+                                <th class="py-3.5 px-4 text-sm text-gray-500 dark:text-gray-400">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="membersTable" class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                            <tr>
+                                <td class="px-4 py-4 text-sm text-gray-700">
+                                    <span class="editable">Mia</span>
+                                    <input class="hidden edit-input w-full p-1 border rounded" type="text" value="Mia">
+                                </td>
+                                <td class="px-4 py-4 text-sm text-gray-700">
+                                    <span class="editable">Gomez</span>
+                                    <input class="hidden edit-input w-full p-1 border rounded" type="text" value="Gomez">
+                                </td>
+                                <td class="px-4 py-4 text-sm text-gray-700">
+                                    <span class="editable">123456789</span>
+                                    <input class="hidden edit-input w-full p-1 border rounded" type="text" value="123456789">
+                                </td>
+                                <td class="px-4 py-4 text-sm text-gray-700">
+                                    <span class="editable">2000-05-10</span>
+                                    <input class="hidden edit-input w-full p-1 border rounded" type="date" value="2000-05-10">
+                                </td>
+                                <td class="px-4 py-4 text-sm text-gray-700">
+                                    <span class="editable">Usuario</span>
+                                    <input class="hidden edit-input w-full p-1 border rounded" type="text" value="Usuario">
+                                </td>
+                                <td class="px-4 py-4 text-sm text-gray-700">
+                                    <span class="editable">mia@example.com</span>
+                                    <input class="hidden edit-input w-full p-1 border rounded" type="email" value="mia@example.com">
+                                </td>
+                                <td class="px-4 py-4 text-sm text-gray-700">
+                                    
+                                    <button class="save-btn hidden px-3 py-1 text-white bg-green-500 rounded">Guardar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+</Layout>
