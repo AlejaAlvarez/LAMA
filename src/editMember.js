@@ -1,35 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const table = document.getElementById("membersTable");
+    document.querySelectorAll(".edit-btn").forEach((button) => {
+        button.addEventListener("click", function () {
+            let row = this.closest("tr");
+            row.querySelectorAll(".editable").forEach((span) => span.classList.add("hidden"));
+            row.querySelectorAll(".edit-input").forEach((input) => input.classList.remove("hidden"));
+            row.querySelector(".edit-btn").classList.add("hidden");
+            row.querySelector(".save-btn").classList.remove("hidden");
+        });
+    });
 
-    if (!table) return; // Asegurarse de que la tabla existe
-
-    table.addEventListener("click", function (event) {
-        const target = event.target;
-
-        if (target.classList.contains("editable")) {
-            const input = target.nextElementSibling;
-            const saveButton = target.closest("tr").querySelector(".save-btn");
-
-            if (input) {
-                target.classList.add("hidden");
-                input.classList.remove("hidden");
-                saveButton.classList.remove("hidden");
-                input.focus();
-            }
-        }
-
-        if (target.classList.contains("save-btn")) {
-            const row = target.closest("tr");
-            const spans = row.querySelectorAll(".editable");
-            const inputs = row.querySelectorAll(".edit-input");
-
-            inputs.forEach((input, index) => {
-                spans[index].textContent = input.value;
-                spans[index].classList.remove("hidden");
+    document.querySelectorAll(".save-btn").forEach((button) => {
+        button.addEventListener("click", function () {
+            let row = this.closest("tr");
+            row.querySelectorAll(".edit-input").forEach((input) => {
+                let span = input.previousElementSibling;
+                span.textContent = input.value;
                 input.classList.add("hidden");
+                span.classList.remove("hidden");
             });
-
-            target.classList.add("hidden");
-        }
+            row.querySelector(".edit-btn").classList.remove("hidden");
+            row.querySelector(".save-btn").classList.add("hidden");
+        });
     });
 });
