@@ -32,6 +32,16 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
                              </a>
                             </li>
                             <li>
+                                <a href="/CreateMember">
+                                    <button className="px-4 py-2 text-white font-bold rounded hover:opacity-80 transition"
+                                        style={{ backgroundColor: "#181b32" }}>
+                                        Crear Miembro
+                                </button>
+                            </a>
+
+                            </li>
+
+                            <li>
                                 <button
                                     onClick={handleLogout}
                                     className="px-6 py-2 font-medium tracking-wide rounded-lg transition-colors duration-300 focus:outline-none focus:ring"
